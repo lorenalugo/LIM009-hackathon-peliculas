@@ -28,7 +28,21 @@ const getQuery = (url) => {
 
 getQuery('https://www.omdbapi.com/?s=batman&apikey=44019e1c');
 */
-const getData = (data) => {
+const getDetailData = (data) => {
+	const dataMovie = data.map(data => {
+    return { Title: data.Title, Poster: data.Poster, imdbRating: data.imdbRating };
+	});
+	return dataMovie;
+};
+
+const getSearchData = (data) => {
+	const dataMovie = data.map(data => {
+    return { Title: data.Title, Poster: data.Poster, Year: data.Year };
+	});
+	return dataMovie;
+};
+
+const getFullSearchData = (data) => {
 	const dataMovie = data.map(data => {
     return { Title: data.Title, Poster: data.Poster, imdbRating: data.imdbRating };
 	});
@@ -36,5 +50,7 @@ const getData = (data) => {
 };
 
 window.movie = {
-  getData
+  getDetailData,
+  getSearchData,
+  getFullSearchData
 };
