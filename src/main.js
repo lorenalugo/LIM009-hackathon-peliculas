@@ -7,7 +7,7 @@ btnSearch.addEventListener('click', () => {
   toggleDisplay();
   let query = inputQuery.value;
   const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
-  fetchDataSearch(url);
+  fetchDataSearchTotal(url);
 });
 
  result.addEventListener('click', (event) => {
@@ -26,6 +26,22 @@ const fetchDataSearch = (url) =>{
     });  
 };
 
+const fetchDataSearchTotal = (url) => {
+ fetch(url)
+   .then(response => response.json())
+   .then(data => movie.getId(data.Search))
+   .then(dataIds =>{
+     let newData = [];
+     for (let i = 0; i < dataIds.length;i++) {
+       newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
+     }
+     Promise.all(newData)
+       .then(responses =>{
+         result.innerHTML = drawTemplate(responses);
+       });
+   });
+};
+
 const drawTemplate = (data)=>{
   let totalCard = '<div class="row">';
   for (let i = 0; i < data.length;i++) {
@@ -34,7 +50,7 @@ const drawTemplate = (data)=>{
           <a href="#"><img src="${data[i].Poster}" class="card-img-top" alt="${data[i].Title}"></a>
           <div class="card-body">
             <p class="card-text">${data[i].Title}</p>
-            <p class="card-text">${data[i].Year}</p>
+            <p class="card-text">${data[i].imdbRating}</p>
           </div>
         </div>
         </div>
@@ -50,79 +66,12 @@ const toggleDisplay = () => {
   document.getElementById('main-form').classList.add('none');  
 }
 
-/*
-const fetchData = (url) => {
-  let searchData = [];
-  fetch(url).then((response) => {
-            return response.json();
-        })
-    .then((json) => {
-            searchData = [...json.Search];
-            return getSearchData(searchData);
-        })
-    .then((result) => {
-      let searchIds = result.map((id) => id.imdbID);
-      return searchIds;
-    })
-    .then((idArray) => {
-      debugger
-      let fullResults = [];
-      for (let i = 0; i < idArray.length; i++) {
-        let titleUrl = `https://www.omdbapi.com/?&${apiKey}&i=${idArray[i]}`;
-        fetch(titleUrl).then((response) => {
-          return response.json();
-        })
-        .then((json) => {
-          fullResults.push(json);
-        })
-      }
-      printTest(fullResults);
-    });
-}
-
 const printTest = (array) => {
-  let template;
-  for (var i = 0; i < array.length; i++) {
-    template += `<div class="col-6"><p>${array[i].Title}</p>
-    <p>${array[i].imdbRating}</p></div>`;    
-  }
-  return template;
+ let template = '<div class=""container>';
+ for (var i = 0; i < array.length; i++) {
+   template += `<div class="col-6"><p>${array[i].Title}</p>
+   <p>${array[i].imdbRating}</p></div>`;
+ }
+ template += '</div>';
+ return template;
 }
-
-*/
-/*
-const changeContent = (content1, content2) => {
-  content1.style.display = 'none';
-  content2.style.display = 'block';
-};
-
-
-const fetchDataMovie = (id)=>{
-  const apiKey = 'apikey=f4578cd7';
-  fetch(`http://www.omdbapi.com/?&${apiKey}&i=${id}`)
-    .then(response => response.json())
-    .then(data=> {
-      console.log(data);
-      resultMovie.innerHTML = drawTemplateMovie(data);
-    });  
-};
-
-const drawTemplateMovie = (data)=>{
-  let card = `
-        <div class="card" style="width:200px">
-          <img class="card-img-top" src="${data.Poster}" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">${data.Title}</h4>            
-          </div>
-        </div> 
-    `;    
-  return card;
-};
-
-
-result.addEventListener('click', (e)=>{
-  const movie = e.target.id;  
-  changeContent(result, resultMovie);
-  fetchDataMovie(movie);
-});
-*/
