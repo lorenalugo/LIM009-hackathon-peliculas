@@ -1,7 +1,10 @@
 const btnSearch = document.getElementById('btn-search');
+const btnRating = document.getElementById('btn-rating');
 const result = document.getElementById('result');
 const inputQuery = document.getElementById('input-query');
 const apiKey = 'apikey=f4578cd7';
+
+let dataSearched;
 
 btnSearch.addEventListener('click', () => {
   toggleDisplay();
@@ -10,14 +13,13 @@ btnSearch.addEventListener('click', () => {
   fetchDataSearchTotal(url);
 });
 
- result.addEventListener('click', (event) => {
-   const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
-   console.log(fetchDataSearch(url));
- });
+result.addEventListener('click', (event) => {
+  const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
+  console.log(fetchDataSearch(url));
+});
 
 
 const fetchDataSearch = (url) =>{
-  let dataMovie;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -27,19 +29,20 @@ const fetchDataSearch = (url) =>{
 };
 
 const fetchDataSearchTotal = (url) => {
- fetch(url)
-   .then(response => response.json())
-   .then(data => movie.getId(data.Search))
-   .then(dataIds =>{
-     let newData = [];
-     for (let i = 0; i < dataIds.length;i++) {
-       newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
-     }
-     Promise.all(newData)
-       .then(responses =>{
-         result.innerHTML = drawTemplate(responses);
-       });
-   });
+  fetch(url)
+    .then(response => response.json())
+    .then(data => movie.getId(data.Search))
+    .then(dataIds =>{
+      let newData = [];
+      for (let i = 0; i < dataIds.length;i++) {
+        newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
+      }
+      Promise.all(newData)
+        .then(responses =>{
+          dataSearched = responses;
+          result.innerHTML = drawTemplate(dataSearched);
+        });
+    });
 };
 
 const drawTemplate = (data)=>{
@@ -64,14 +67,9 @@ const drawTemplate = (data)=>{
 const toggleDisplay = () => {
   document.getElementById('nav-form').classList.remove('none');
   document.getElementById('main-form').classList.add('none');  
-}
+};
 
-const printTest = (array) => {
- let template = '<div class=""container>';
- for (var i = 0; i < array.length; i++) {
-   template += `<div class="col-6"><p>${array[i].Title}</p>
-   <p>${array[i].imdbRating}</p></div>`;
- }
- template += '</div>';
- return template;
-}
+btnRating.addEventListener('click', () => {
+  const dataOrdered = movie.sortData(dataSearched);
+  result.innerHTML = drawTemplate(dataOrdered);
+});  
