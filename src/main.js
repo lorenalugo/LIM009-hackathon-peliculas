@@ -10,17 +10,18 @@ btnSearch.addEventListener('click', () => {
   let query = inputQuery.value;
   const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
+  document.getElementById('buttons').classList.remove('none');
 });
 
 btnRating.addEventListener('click', () => {
- const dataOrdered = movie.sortData(dataSearched);
- result.innerHTML = drawTemplate(dataOrdered);
+  const dataOrdered = movie.sortData(dataSearched);
+  result.innerHTML = drawTemplate(dataOrdered);
 });
 
 result.addEventListener('click', (event) => {
   const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
- });
+});
 
 
 const fetchDataDetails = (url) => {
@@ -29,29 +30,30 @@ const fetchDataDetails = (url) => {
     .then((data) => {
       const dataDetail = movie.getItemDetails(data);
       result.innerHTML = drawDetailsTemplate(dataDetail);
-    });  
+    });
 };
 
 const fetchDataSearchTotal = (url) => {
- fetch(url)
-   .then(response => response.json())
-   .then(data => movie.getId(data.Search))
-   .then(dataIds =>{
-     let newData = [];
-     for (let i = 0; i < dataIds.length;i++) {
-       newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
-     }
-     Promise.all(newData)
-       .then(responses =>{
-         dataSearched = responses;
-         result.innerHTML = drawTemplate(dataSearched);
-       });
-   });
+  fetch(url)
+    .then(response => response.json())
+    .then(data => movie.getId(data.Search))
+    .then(dataIds => {
+      let newData = [];
+      for (let i = 0; i < dataIds.length; i++) {
+        newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response => response.json()));
+      }
+      Promise.all(newData)
+        .then(responses => {
+          dataSearched = responses;
+          console.log(dataSearched);
+          result.innerHTML = drawTemplate(dataSearched);
+        });
+    });
 };
 
-const drawTemplate = (data)=>{
+const drawTemplate = (data) => {
   let totalCard = '<div class="row">';
-  for (let i = 0; i < data.length;i++) {
+  for (let i = 0; i < data.length; i++) {
     let card = `<div class="col-sm-4 col-md-2">
         <div class="card">
           <a href="#"><img src="${data[i].Poster}" class="card-img-top" alt="${data[i].Title}"></a>
@@ -67,14 +69,13 @@ const drawTemplate = (data)=>{
   totalCard += '</div>';
   return totalCard;
 };
-
 const toggleDisplay = () => {
   document.getElementById('nav-form').classList.remove('none');
-  document.getElementById('main-form').classList.add('none');  
-}
+  document.getElementById('main-form').classList.add('none');
+};
 
 const drawDetailsTemplate = (obj) => {
- let template = `<div class="container">
+  let template = `<div class="container">
                    <img class="rounded float-left" src="${obj.Poster}" alt="${obj.Title}" />
                    <h3>${obj.Title}</h3>
                    <p>${obj.imdbRating}</p>
@@ -83,5 +84,5 @@ const drawDetailsTemplate = (obj) => {
                    <p>${obj.Actors}</p>
                    <p>${obj.Plot}</p>
                  </div>`;
- return template;
-}
+  return template;
+};
