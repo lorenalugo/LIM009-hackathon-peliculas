@@ -11,16 +11,17 @@ btnSearch.addEventListener('click', () => {
   if (inputQuery.value !== '') {
   toggleDisplay();
   let query = inputQuery.value;
-  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
-  document.getElementById('buttons').classList.remove('none');
+  document.getElementById('buttons').classList.remove('d-none');
+  document.getElementById('result').classList.remove('d-none');
   }
 });
 
 btnSearchNav.addEventListener('click', () => {
   if (inputQuery.value !== '') {
   let query = inputQueryNav.value;
-  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
 }
 });
@@ -31,7 +32,7 @@ btnRating.addEventListener('click', () => {
 });
 
 result.addEventListener('click', (event) => {
-  const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
+  const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
  });
 
@@ -51,7 +52,7 @@ const fetchDataSearchTotal = (url) => {
    .then(dataIds =>{
      let newData = [];
      for (let i = 0; i < dataIds.length;i++) {
-       newData.push(fetch(`//www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
+       newData.push(fetch(`https://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
      }
      Promise.all(newData)
        .then(responses =>{
@@ -81,8 +82,8 @@ const drawTemplate = (data)=>{
 };
 
 const toggleDisplay = () => {
-  document.getElementById('nav-form').classList.remove('none');
-  document.getElementById('main-form').classList.add('none');  
+  document.getElementById('nav-form').classList.remove('d-none');
+  document.getElementById('main-form').classList.add('d-none');  
 }
 
 const drawDetailsTemplate = (obj) => {
