@@ -11,7 +11,7 @@ const getId = (data) => {
 };
 
 const getItemDetails = (data) => {
-  const details = { Title: data.Title, Year: data.Year, Runtime: data.Runtime, Genre: data.Genre, Actors: data.Actors, Plot: data.Plot, Poster: data.Poster, imdbRating: data.imdbRating };
+  const details = { Title: data.Title, Type: data.Type, Year: data.Year, Runtime: data.Runtime, Genre: data.Genre, Actors: data.Actors, Plot: data.Plot, Poster: data.Poster, imdbRating: data.imdbRating };
   return details;
 };
 

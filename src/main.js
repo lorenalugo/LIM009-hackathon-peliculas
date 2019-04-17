@@ -81,7 +81,7 @@ const drawTemplate = (data) => {
             <div class="card-body p-0">
               <small class="card-text">${data[i].Title}</small>
               <div class="align-items-left">
-                <small class="text-muted">${data[i].imdbRating}</small>
+                <small class="text-muted">Rating: ${data[i].imdbRating}</small>
               </div>
             </div>
           </div>
@@ -101,6 +101,7 @@ const drawDetailsTemplate = (obj) => {
   let template = `<div class="container bg-dark container-details">
                    <img class="rounded float-left h-100 w-auto" src="${obj.Poster}" alt="${obj.Title}" />
                    <h3>${obj.Title}</h3>
+                   <p>Tipo: ${obj.Type}</p>
                    <p>Rating: ${obj.imdbRating}</p>
                    <p>Duración: ${obj.Runtime} min</p>
                    <p>Género: ${obj.Genre}</p>

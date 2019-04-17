@@ -1,57 +1,46 @@
-historias de usuario
+Historias de Usuario
 
-1.- yo como usuario deseo ver las peliculas y serie del este año (titulo, poster, imdb)
-Funcionalidad:
-crear una funcion que traiga la data de todas las peliculas desde la api
-crear una funcion que obtenga el titulo, poster y imdb de cada pelicula
+1.- yo como usuario deseo poder buscar una película o serie con solo colocar una palabra
+FUNCIONALIDAD:
+crear una función que busque las coincidencias de una o varias palabras asociadas a un titulo de película
 DOM:
-crear una funcion que muestre en html la informacion de cada pelicula
-crear estructura semantica del html(header, navbar, main, footer)
-CSS:
-crear las clases para los estilos generales: tipografia, tamaños de fuente, colores
-usar las clases de bootstrap 4
+crear una función que muestre en html las coincidencias de la busqueda, integrando las clases de bootstrap
+crear un formulario para ingresar la búsqueda
+crear un contenedor para mostrar los resultados
 TEST:
 escribir pruebas unitarias
 ejecutar pruebas y corregir los fallos
+Definición de Terminado:
+El usuario escribe su búsqueda y al hacer click al botón de buscar, aparece un listado de coincidencias, en forma de grid, con los estilos css acordados.
+El código pasa los tests, y se encuentra en el repositorio.
+La historia de usuario ha sido testeada con usuarios.
 
-2.- yo como usuario quiero poder filtrar la lista de peliculas y/o por genero y rating
-Funcionalidad:
-crear una funcion que filtre las peliculas por genero
-crear una funcion que ordene las peliculas por rating
+2.- yo como usuario quiero poder ordenar la lista de películas y/o series por rating
+FUNCIONALIDAD:
+crear una función que ordene las películas por rating
 DOM:
-Crear botones de ordenado y filrado
-crear una funcion que muestre en html los resultados del filtrado integrando las clases establecidas por bootstrap
-crear una funcion que muestre en html los resultados del ordenado integrando las clases establecidas por bootstrap
+Crear botón de ordenado
+crear una función que muestre en html los resultados del ordenado integrando las clases establecidas por bootstrap
 TEST:
 escribir pruebas unitarias
 ejecutar pruebas y corregir los fallos
+Definición de Terminado:
+El usuario hace click al botón de ordenar y se acomoda el listado de coincidencias, en orden descendente del rating, manteniendo los estilos css acordados.
+El código pasa los tests, y se encuentra en el repositorio.
+La historia de usuario ha sido testeada con usuarios.
 
-3.- yo como usuario deseo ver la informacion de la pelicula o serie seleccionada
-Funcionalidad:
-crear una funcion que obtenga el id de una pelicula y busque la informacion de ella
+3.- yo como usuario deseo ver la información de la película o serie seleccionada
+FUNCIONALIDAD:
+crear una función que busque la información de una película en función de su id
 DOM:
-crear una funcion que imprima en html la informacion de la pelicula seleccionada, integrando las clases de bootstrap
-Crear boton para regresar  y darle funcionalidad
+crear una función que imprima en html la información de la película seleccionada, integrando las clases de bootstrap
 TEST:
 escribir pruebas unitarias
 ejecutar pruebas y corregir los fallos
-
-4.- yo como usuario deseo poder buscar una pelicula o serie con solo colocar una palabra
-Funcionalidad:
-crear una funcion que busque las coincidencias de una o varias palabras asociadas a un titulo de pelicula
-DOM:
-crear una funcion que muestre en html las coincidencias de la busqueda
-TEST:
-escribir pruebas unitarias
-ejecutar pruebas y corregir los fallos
-
-Escribir el README
-
-nombres de las funciones:
-filterData
-sortData
-searchQuery
-getData
+Definición de Terminado:
+El usuario hace click sobre la imagen de la película y aparece la vista del detalle, con la información acordada (título, duración, género, actores, sinopsis, rating), manteniendo los estilos css acordados.
+El código pasa los tests, y se encuentra en el repositorio.
+La historia de usuario ha sido testeada con usuarios.
 
 
 
