@@ -34,13 +34,23 @@ const fetchDataDetails = (url) => {
 };
 
 const fetchDataSearchTotal = (url) => {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => movie.getId(data.Search))
-    .then(dataIds => {
-      let newData = [];
-      for (let i = 0; i < dataIds.length; i++) {
-        newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response => response.json()));
+  const page = 3; 
+  let dataPages = [];
+  for (let i = 1; i <= page; i++) {
+    dataPages.push(fetch(`${url}&page=${[i]}`)
+      .then(response=>response.json())
+      .then(data=>data.Search)
+    );
+  }
+  Promise.all(dataPages)
+    .then(responses =>responses[0].concat(responses[1], responses[2]))  
+    .then(result=> movie.getId(result))
+    .then(movie =>{ 
+      let newData = [];  
+      let movieId;         
+      movieId = movie;
+      for (let i = 0; i < movieId.length;i++) {
+        newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${movieId[i]}`).then(response=>response.json()));
       }
       Promise.all(newData)
         .then(responses => {
