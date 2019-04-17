@@ -29,6 +29,7 @@ header {
 .main {
 	padding-top: 10%;
 	background-color: rgba(45, 52, 48, 0.6);
+	min-height: 80vh;
 }
 .footer {
   height: 10vh;
@@ -36,9 +37,6 @@ header {
   background-color: #000;
 }
 @media (min-width: 768px) {
-	.main {
-		min-height: 80vh;
-	}
 	.container-details {
 		height: 300px;
 	}
