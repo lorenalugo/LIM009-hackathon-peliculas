@@ -11,7 +11,7 @@ btnSearch.addEventListener('click', () => {
   if (inputQuery.value !== '') {
     toggleDisplay();
     let query = inputQuery.value;
-    const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+    const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
     fetchDataSearchTotal(url);
     document.getElementById('buttons').classList.remove('none');
   }
@@ -20,7 +20,7 @@ btnSearch.addEventListener('click', () => {
 btnSearchNav.addEventListener('click', () => {
   if (inputQuery.value !== '') {
     let query = inputQueryNav.value;
-    const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+    const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
     fetchDataSearchTotal(url);
   }
 });
@@ -31,7 +31,7 @@ btnRating.addEventListener('click', () => {
 });
 
 result.addEventListener('click', (event) => {
-  const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
+  const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
 });
 
