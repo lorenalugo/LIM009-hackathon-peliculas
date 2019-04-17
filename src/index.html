@@ -20,16 +20,22 @@
   			</form>
 			</nav>
   	</header><!-- /header -->
-  	<main>
+  	<main class="main">
   		<h2 class="text-center">Info Películas y Series</h2>
-  		<form id="main-form" class="form-inline col-10 col-sm-6 col-md-4">
+  		<div class="mx-auto" style="width: 400px;">
+  		<form id="main-form" class="form-inline">
     			<input id="input-query" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" />
     			<button id="btn-search" class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search"></i></button>
   			</form>
+  		</div>
+  		<div id="buttons" class="container none">
+            <button id="btn-rating" class="btn btn-outline-success my-2 my-sm-0" type="button">Rating</button>
+        </div>
 		<div id="result" class="container"></div>
-		<div id="result-movie"></div>
     </main>
-    
+    <footer class="footer text-center">
+    	<p>@2019, Copyright</p>
+    </footer>
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

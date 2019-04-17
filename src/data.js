@@ -10,7 +10,20 @@ const getId = (data) => {
  return dataMovie;
 };
 
+const getItemDetails = (data) => {
+	const details = {Title: data.Title, Year: data.Year, Runtime: data.Runtime, Genre: data.Genre, Actors: data.Actors, Plot: data.Plot, Poster: data.Poster, imdbRating: data.imdbRating};
+	return details;
+}
+
+const sortData = (data) => {
+ const dataOrder = [...data];
+ let orderedMovie = dataOrder.sort((eleA, eleB) => eleB.imdbRating - eleA.imdbRating);
+ return orderedMovie;
+};
+
 window.movie = {
   getSearchData,
-  getId
+  getId,
+  getItemDetails,
+  sortData
 };

@@ -1,28 +1,46 @@
 const btnSearch = document.getElementById('btn-search');
 const result = document.getElementById('result');
+const btnRating = document.getElementById('btn-rating');
 const inputQuery = document.getElementById('input-query');
+const inputQueryNav = document.getElementById('input-query2');
+const btnSearchNav = document.getElementById('btn-search2');
 const apiKey = 'apikey=f4578cd7';
+let dataSearched;
 
 btnSearch.addEventListener('click', () => {
+  if (inputQuery.value !== '') {
   toggleDisplay();
   let query = inputQuery.value;
   const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
+  document.getElementById('buttons').classList.remove('none');
+  }
 });
 
- result.addEventListener('click', (event) => {
-   const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
-   console.log(fetchDataSearch(url));
+btnSearchNav.addEventListener('click', () => {
+  if (inputQuery.value !== '') {
+  let query = inputQueryNav.value;
+  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+  fetchDataSearchTotal(url);
+}
+});
+
+btnRating.addEventListener('click', () => {
+ const dataOrdered = movie.sortData(dataSearched);
+ result.innerHTML = drawTemplate(dataOrdered);
+});
+
+result.addEventListener('click', (event) => {
+  const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
+  fetchDataDetails(url);
  });
 
-
-const fetchDataSearch = (url) =>{
-  let dataMovie;
+const fetchDataDetails = (url) => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const dataSearch = movie.getSearchData(data.Search);
-      result.innerHTML = drawTemplate(dataSearch);
+      const dataDetail = movie.getItemDetails(data);
+      result.innerHTML = drawDetailsTemplate(dataDetail);
     });  
 };
 
@@ -37,7 +55,8 @@ const fetchDataSearchTotal = (url) => {
      }
      Promise.all(newData)
        .then(responses =>{
-         result.innerHTML = drawTemplate(responses);
+         dataSearched = responses;
+         result.innerHTML = drawTemplate(dataSearched);
        });
    });
 };
@@ -66,12 +85,20 @@ const toggleDisplay = () => {
   document.getElementById('main-form').classList.add('none');  
 }
 
-const printTest = (array) => {
- let template = '<div class=""container>';
- for (var i = 0; i < array.length; i++) {
-   template += `<div class="col-6"><p>${array[i].Title}</p>
-   <p>${array[i].imdbRating}</p></div>`;
- }
- template += '</div>';
+const drawDetailsTemplate = (obj) => {
+ let template = `<div class="container">
+                   <img class="rounded float-left" src="${obj.Poster}" alt="${obj.Title}" />
+                   <h3>${obj.Title}</h3>
+                   <p>${obj.imdbRating}</p>
+                   <p>${obj.Runtime}</p>
+                   <p>${obj.Genre}</p>
+                   <p>${obj.Actors}</p>
+                   <p>${obj.Plot}</p>
+                 </div>`;
  return template;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('nav-form').reset();
+  document.getElementById('main-form').reset();
+});
