@@ -6,7 +6,7 @@ const apiKey = 'apikey=f4578cd7';
 btnSearch.addEventListener('click', () => {
   toggleDisplay();
   let query = inputQuery.value;
-  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
+  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
 });
 
