@@ -8,7 +8,7 @@ let dataSearched;
 btnSearch.addEventListener('click', () => {
   toggleDisplay();
   let query = inputQuery.value;
-  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
+  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
 });
 
@@ -18,7 +18,7 @@ btnRating.addEventListener('click', () => {
 });
 
 result.addEventListener('click', (event) => {
-  const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
+  const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
  });
 
@@ -39,7 +39,7 @@ const fetchDataSearchTotal = (url) => {
    .then(dataIds =>{
      let newData = [];
      for (let i = 0; i < dataIds.length;i++) {
-       newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
+       newData.push(fetch(`//www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
      }
      Promise.all(newData)
        .then(responses =>{
