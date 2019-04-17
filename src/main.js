@@ -9,31 +9,31 @@ let dataSearched;
 
 btnSearch.addEventListener('click', () => {
   if (inputQuery.value !== '') {
-  toggleDisplay();
-  let query = inputQuery.value;
-  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
-  fetchDataSearchTotal(url);
-  document.getElementById('buttons').classList.remove('none');
+    toggleDisplay();
+    let query = inputQuery.value;
+    const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+    fetchDataSearchTotal(url);
+    document.getElementById('buttons').classList.remove('none');
   }
 });
 
 btnSearchNav.addEventListener('click', () => {
   if (inputQuery.value !== '') {
-  let query = inputQueryNav.value;
-  const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
-  fetchDataSearchTotal(url);
-}
+    let query = inputQueryNav.value;
+    const url = `//www.omdbapi.com/?&${apiKey}&s=${query}`;
+    fetchDataSearchTotal(url);
+  }
 });
 
 btnRating.addEventListener('click', () => {
- const dataOrdered = movie.sortData(dataSearched);
- result.innerHTML = drawTemplate(dataOrdered);
+  const dataOrdered = movie.sortData(dataSearched);
+  result.innerHTML = drawTemplate(dataOrdered);
 });
 
 result.addEventListener('click', (event) => {
   const url = `//www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
- });
+});
 
 const fetchDataDetails = (url) => {
   fetch(url)
@@ -41,29 +41,39 @@ const fetchDataDetails = (url) => {
     .then((data) => {
       const dataDetail = movie.getItemDetails(data);
       result.innerHTML = drawDetailsTemplate(dataDetail);
-    });  
+    });
 };
 
 const fetchDataSearchTotal = (url) => {
- fetch(url)
-   .then(response => response.json())
-   .then(data => movie.getId(data.Search))
-   .then(dataIds =>{
-     let newData = [];
-     for (let i = 0; i < dataIds.length;i++) {
-       newData.push(fetch(`//www.omdbapi.com/?&${apiKey}&i=${dataIds[i]}`).then(response=>response.json()));
-     }
-     Promise.all(newData)
-       .then(responses =>{
-         dataSearched = responses;
-         result.innerHTML = drawTemplate(dataSearched);
-       });
-   });
+  const page = 3; 
+  let dataPages = [];
+  for (let i = 1; i <= page; i++) {
+    dataPages.push(fetch(`${url}&page=${[i]}`)
+      .then(response=>response.json())
+      .then(data=>data.Search)
+    );
+  }
+  Promise.all(dataPages)
+    .then(responses =>responses[0].concat(responses[1], responses[2]))  
+    .then(result=> movie.getId(result))
+    .then(movie =>{ 
+      let newData = [];  
+      let movieId;         
+      movieId = movie;
+      for (let i = 0; i < movieId.length;i++) {
+        newData.push(fetch(`http://www.omdbapi.com/?&${apiKey}&i=${movieId[i]}`).then(response=>response.json()));
+      }
+      Promise.all(newData)
+        .then(responses => {
+          dataSearched = responses;
+          result.innerHTML = drawTemplate(dataSearched);
+        });
+    });
 };
 
-const drawTemplate = (data)=>{
+const drawTemplate = (data) => {
   let totalCard = '<div class="row">';
-  for (let i = 0; i < data.length;i++) {
+  for (let i = 0; i < data.length; i++) {
     let card = `<div class="col-sm-4 col-md-2">
         <div class="card">
           <a href="#"><img src="${data[i].Poster}" class="card-img-top" alt="${data[i].Title}"></a>
@@ -82,11 +92,11 @@ const drawTemplate = (data)=>{
 
 const toggleDisplay = () => {
   document.getElementById('nav-form').classList.remove('none');
-  document.getElementById('main-form').classList.add('none');  
-}
+  document.getElementById('main-form').classList.add('none');
+};
 
 const drawDetailsTemplate = (obj) => {
- let template = `<div class="container">
+  let template = `<div class="container">
                    <img class="rounded float-left" src="${obj.Poster}" alt="${obj.Title}" />
                    <h3>${obj.Title}</h3>
                    <p>${obj.imdbRating}</p>
@@ -95,8 +105,8 @@ const drawDetailsTemplate = (obj) => {
                    <p>${obj.Actors}</p>
                    <p>${obj.Plot}</p>
                  </div>`;
- return template;
-}
+  return template;
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('nav-form').reset();
