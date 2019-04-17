@@ -2,14 +2,27 @@ const btnSearch = document.getElementById('btn-search');
 const result = document.getElementById('result');
 const btnRating = document.getElementById('btn-rating');
 const inputQuery = document.getElementById('input-query');
+const inputQueryNav = document.getElementById('input-query2');
+const btnSearchNav = document.getElementById('btn-search2');
 const apiKey = 'apikey=f4578cd7';
 let dataSearched;
 
 btnSearch.addEventListener('click', () => {
+  if (inputQuery.value !== '') {
   toggleDisplay();
   let query = inputQuery.value;
   const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
   fetchDataSearchTotal(url);
+  document.getElementById('buttons').classList.remove('none');
+  }
+});
+
+btnSearchNav.addEventListener('click', () => {
+  if (inputQuery.value !== '') {
+  let query = inputQueryNav.value;
+  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
+  fetchDataSearchTotal(url);
+}
 });
 
 btnRating.addEventListener('click', () => {
@@ -21,7 +34,6 @@ result.addEventListener('click', (event) => {
   const url = `https://www.omdbapi.com/?&${apiKey}&t=${event.target.alt}`;
   fetchDataDetails(url);
  });
-
 
 const fetchDataDetails = (url) => {
   fetch(url)
@@ -85,3 +97,8 @@ const drawDetailsTemplate = (obj) => {
                  </div>`;
  return template;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('nav-form').reset();
+  document.getElementById('main-form').reset();
+});
