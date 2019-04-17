@@ -9,20 +9,21 @@ let dataSearched;
 
 btnSearch.addEventListener('click', () => {
   if (inputQuery.value !== '') {
-    toggleDisplay();
-    let query = inputQuery.value;
-    const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
-    fetchDataSearchTotal(url);
-    document.getElementById('buttons').classList.remove('none');
+  toggleDisplay();
+  let query = inputQuery.value;
+  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
+  fetchDataSearchTotal(url);
+  document.getElementById('buttons').classList.remove('d-none');
+  document.getElementById('result').classList.remove('d-none');
   }
 });
 
 btnSearchNav.addEventListener('click', () => {
   if (inputQuery.value !== '') {
-    let query = inputQueryNav.value;
-    const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
-    fetchDataSearchTotal(url);
-  }
+  let query = inputQueryNav.value;
+  const url = `https://www.omdbapi.com/?&${apiKey}&s=${query}`;
+  fetchDataSearchTotal(url);
+}
 });
 
 btnRating.addEventListener('click', () => {
@@ -91,9 +92,9 @@ const drawTemplate = (data) => {
 };
 
 const toggleDisplay = () => {
-  document.getElementById('nav-form').classList.remove('none');
-  document.getElementById('main-form').classList.add('none');
-};
+  document.getElementById('nav-form').classList.remove('d-none');
+  document.getElementById('main-form').classList.add('d-none');  
+}
 
 const drawDetailsTemplate = (obj) => {
   let template = `<div class="container">
