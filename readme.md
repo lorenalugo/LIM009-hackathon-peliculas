@@ -1,96 +1,135 @@
-# "Hackathon" de final de _Common Core_, películas
+# Movies & Series HandBook, "Hackathon" de final de _Common Core_, películas
 
 ## Índice
 
-* [Preámbulo](#preámbulo)
-* [Resumen del proyecto](#resumen-del-proyecto)
-* [Consideraciones generales](#consideraciones-generales)
-* [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
-* [Parte obligatoria](#parte-obligatoria)
-* [Consideraciones técnicas](#consideraciones-técnicas)
+* [Acerca de](#acerca-de)
+* [Proceso de Diseño](#proceso-de-diseño)
+* [Planning](#planning)
 
- ***
+***
 
-## Preámbulo
+## Acerca de
 
-Con la aparición de plataformas para ver películas en la nube, como Netflix o
-Hulu, ver películas desde donde estés, comiendo lo que quieras
-(sin tener que pagar precios ridículos por pop-corn / pipoca / palomitas /
-canchita / cabritas), parando si es necesario, teniendo acceso a una cantidad
-abrumadora de películas... ha cambiado la experiencia del usuario
-y modificado el mercado de las películas a nivel global.
+Movies $ Series HandBook es una aplicación web que permite descubrir información acerca de títulos, géneros, ratings de películas y series, antiguas y actuales, tan sólo con ingresar parte de su título. Utiliza OMDb, una web API que permite obtener información de las búsquedas a través de títulos, palabras claves o incluso por id de imdb.
 
- ![Pelis](https://media.giphy.com/media/NipFetnQOuKhW/giphy.gif)
+## Proceso de Diseño
 
-## Resumen del proyecto
+El proceso se realizó en cuatro etapas: investigación, definición-ideación, prototipado y testeos de usuarios.
 
-Durante estos días crearás el producto que tú quieras alrededor del mundo
-de las películas. Puede ser un sitio que hable de las mejores películas
-latinoamericanas, uno que recomiende las películas recién estrenadas en Netflix,
-uno de pelis de terror... o... ¡lo que quieras!
+La investigación, se realizó mediante una entrevista a usuarios en edades comprendidas entre 15 y 50 años, en las cuales se determinaron las necesidades e intereses de los mismos.
 
-## Consideraciones generales
+Para la definición-ideación, se definieron las historias de usuarios, con sus definiciones de terminado.
 
-* Este proyecto se debe resolver en equipos de hasta 4 personas.
-* Usa la API de [OMDB](http://www.omdbapi.com/) (The Open Movie Database).
-* Tiempo para completar el reto: 3 días.
-* Habrán dos presentaciones, una a la mitad de la _hackathon_ y otra al final.
+Historias de Usuario
 
-## Objetivos de aprendizaje
+1.- yo como usuario deseo poder buscar una película o serie con solo colocar una palabra
 
-* Enfrentarte a un reto de corta duración en el que pongas en práctica todo
-lo aprendido hasta ahora.
-* Que sigas desarrollando tus habilidades de trabajo en equipo. Mientras más
-personas en un equipo de trabajo, mayor complejidad para: tener un entendimiento
-común, seguir el flujo de trabajo, buscar consensos, etc.
+FUNCIONALIDAD:
 
-## Parte Obligatoria
+crear una función que busque las coincidencias de una o varias palabras asociadas a un titulo de película
 
-* Todo el planeamiento del trabajo deberá ser detallado en un repositorio único
-por _squad_ en el que se presente el _planning_, el _research_, los _sketches_
-y las inspiraciones utilizadas para definir el producto.
-* Además, deberás detallar en el archivo _readme_, qué hizo cada una en el
-proyecto.
-* El producto deberá presentarse publicado en github pages.
+DOM:
 
-## Consideraciones técnicas
+crear una función que muestre en html las coincidencias de la busqueda, integrando las clases de bootstrap
 
-* El diseño visual de los componentes es de libre elección de las estudiantes,
-sin embargo, si no quieren crearlo desde cero, pueden utilizar el que
-propuso [Walmart](https://drive.google.com/file/d/0B6GBtl-gO6LwaVprQkFqTGI2a28/view).
-* Deberán usar al menos un framework de css.
+crear un formulario para ingresar la búsqueda
 
-## Reglas de las presentaciones 
+crear un contenedor para mostrar los resultados
 
-* Cada squad tendrá 5 minutos para presentar su demo y 5 minutos para recibir preguntas.
+TEST:
 
-* Las personas que presentan en la primera presentación no deben ser las mismas de la presentación final.
+escribir pruebas unitarias
 
-## Horario
+ejecutar pruebas y corregir los fallos
 
-|       |  Lunes            | Martes                       | Miércoles                     | 
-|------ | ------------------| ---------------------------- | ----------------------------- | 
-| 8:00  | Kick off hackaton | Daily por squad              |   Hackeo                      |      
-| 9:00  | Sesión de planificación  | Hackeo                |   Detalles finales            | 
-| 10:00 | Hackeo            | Compartir link de aplicación | Feria de demostraciones       |
-| 11:00 |                   | Presentación y Feedback      | Presentación de mejores squads|    
-| 12:00 |                   |                              |     Deliberación del jurado   |                                
-|>13:00 |                   |                              |                               |                                
-| 20:00 |                   |                              |                               |                       
+Definición de Terminado:
 
-## Tips para la organización de trabajo entre UX y Front end 
+El usuario escribe su búsqueda y al hacer click al botón de buscar, aparece un listado de coincidencias, en
+forma de grid, con los estilos css acordados.
 
-* Las UX y FE entienden en conjunto el reto en el que van a trabajar, se organizan y arman sus primeros bocetos.
-* Con los primeros bocetos/ideas, las FE pasan a crear su ambiente de desarrollo y a crear componentes atómicos que luego les sea fácil personalizar con CSS y utilizar para crear interfaces más complejas. Además, las FE empiezan también a trabajar en la lógica de la aplicación. Mientras tanto, las UX crean una guía de estilos, los flujos de usuarios, hacen un prototipo más completo y lo testean.
-* Las UX comparten el prototipo testeado, para que el equipo empiece a personalizar los componentes y a ponerlos en conjunto.
-* Las UX hacen QA y testing con los releases que vayan haciendo las FE.
-* Planifiquen, historias de usuario y definition of done son importantísimos.
-* Usen las ceremonias ágiles para saber en que van como equipo, dailys y retrospectivas diarias son esenciales.
-* Iteren, iteren, iteren.
+El código pasa los tests, y se encuentra en el repositorio.
 
-## ¿Qué es la Feria de demos?
+La historia de usuario ha sido testeada con usuarios.
 
-La feria de demos se realizará el día de las presentaciones, consiste en la dinámica de “speed dating”, cada squad presentará su demo durante 3 minutos a un grupo de personas, entre ellos los jurados de la Hackathon. Luego de los 3 minutos sonará una chicharra y el grupo de personas rotará al siguiente squad, de esta forma deberán presentar durante una hora. 
+2.- yo como usuario quiero poder ordenar la lista de películas y/o series por rating
 
-* Las demos no deben durar más de 3 minutos y deben mostrar el producto y las tecnologías usadas.
-* Los asistentes van a votar por los 5 equipos finalistas, quienes tendrán la oportunidad de hacer su demo a todo el público para poder elegir un ganador. 
+FUNCIONALIDAD:
+
+crear una función que ordene las películas por rating
+
+DOM:
+
+Crear botón de ordenado
+
+crear una función que muestre en html los resultados del ordenado integrando las clases establecidas por
+bootstrap
+
+TEST:
+
+escribir pruebas unitarias
+
+ejecutar pruebas y corregir los fallos
+
+Definición de Terminado:
+
+El usuario hace click al botón de ordenar y se acomoda el listado de coincidencias, en orden descendente
+del rating, manteniendo los estilos css acordados.
+
+El código pasa los tests, y se encuentra en el repositorio.
+
+La historia de usuario ha sido testeada con usuarios.
+
+3.- yo como usuario deseo ver la información de la película o serie seleccionada
+
+FUNCIONALIDAD:
+
+crear una función que busque la información de una película en función de su id
+
+DOM:
+
+crear una función que imprima en html la información de la película seleccionada, integrando las clases de
+bootstrap
+
+TEST:
+
+escribir pruebas unitarias
+
+ejecutar pruebas y corregir los fallos
+
+Definición de Terminado:
+
+El usuario hace click sobre la imagen de la película y aparece la vista del detalle, con la información acordada (título, duración, género, actores, sinopsis, rating), manteniendo los estilos css acordados.
+
+El código pasa los tests, y se encuentra en el repositorio.
+
+La historia de usuario ha sido testeada con usuarios.
+
+Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testeado con usuarios, de las edades antes mencionadas.
+
+Y finalmente el prototipo de alta fidelidad.
+
+https://www.figma.com/proto/W263NumHRDhWaXaNiTctL6jr/HACK_Peli?node-id=1%3A2&scaling=scale-down&redirected=1
+
+## plannig
+
+|:-------------------------------------------------------------------------------------------------|
+|                                                       |              INTEGRANTES                 |
+|                    ACTIVIDADES                        |:-----------------------------------------|
+|                                                       |  Lorena (FE) | Leslie (FE) | Maria (UX)  |
+|:------------------------------------------------------|: ------------|:------------|:------------|
+|  1. Definición del producto                           |       x      |      x      |      x      |
+|  2. Entrevistas a usuarios                            |              |             |      x      |
+|  3. Definición de Historias de usuarios               |       x      |      x      |      x      |
+|  4. Diseño del Prototipo de baja fidelidad            |       x      |      x      |      x      |
+|  5. Flujo de usuarios                                 |       x      |      x      |      x      |
+|  6. Diseño del Prototipo de alta fidelidad en Figma   |              |             |      x      |
+|  7. Testeos de Usabilidad                             |              |             |      x      |
+|:-------------------------------------------------------------------------------------------------|
+|  8. Implementacion de interfaz de usuario             |                                          |
+|    - Creación del ambiente de desarrollo              |        x     |             |             |
+|    - Creación de la logica y componentes              |        x     |      x      |             |
+|    - Maquetación de la interfaz  en HTML              |        x     |      x      |             |
+|    - Personalización de los estilos CSS con Boostrap  |        x     |      x      |             |
+|:-------------------------------------------------------------------------------------------------|
+
+
