@@ -20,13 +20,30 @@ header {
 	width: 20px;
 	height: auto;
 }
+
+.card-height {
+	width: 200px;
+	height: auto;
+}
+
 .main {
 	padding-top: 10%;
-	height: 80vh;
 	background-color: rgba(45, 52, 48, 0.6);
 }
 .footer {
   height: 10vh;
   bottom: 0;
   background-color: #000;
+}
+@media (min-width: 768px) {
+	.main {
+		min-height: 80vh;
+	}
+	.container-details {
+		height: 300px;
+	}
+	.card-height {
+		height: 320px;
+		width: auto;
+	}
 }

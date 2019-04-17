@@ -73,18 +73,19 @@ const fetchDataSearchTotal = (url) => {
 };
 
 const drawTemplate = (data) => {
-  let totalCard = '<div class="row">';
+  let totalCard = '<div class="row bg-dark p-3 m-0">';
   for (let i = 0; i < data.length; i++) {
-    let card = `<div class="col-sm-4 col-md-2">
-        <div class="card">
-          <a href="#"><img src="${data[i].Poster}" class="card-img-top" alt="${data[i].Title}"></a>
-          <div class="card-body">
-            <p class="card-text">${data[i].Title}</p>
-            <p class="card-text">${data[i].imdbRating}</p>
+    let card = `<div class="col-md-2 col-8 card-height mb-3 mx-auto">
+          <div class="card bg-dark b-4 shadow-sm h-100">
+            <a href="#"><img src="${data[i].Poster}" class="card-img-top" alt="${data[i].Title}"></a>
+            <div class="card-body p-0">
+              <small class="card-text">${data[i].Title}</small>
+              <div class="align-items-left">
+                <small class="text-muted">${data[i].imdbRating}</small>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-    `;
+        </div>`;
     totalCard += card;
   }
   totalCard += '</div>';
@@ -97,14 +98,14 @@ const toggleDisplay = () => {
 }
 
 const drawDetailsTemplate = (obj) => {
-  let template = `<div class="container">
-                   <img class="rounded float-left" src="${obj.Poster}" alt="${obj.Title}" />
+  let template = `<div class="container bg-dark container-details">
+                   <img class="rounded float-left h-100 w-auto" src="${obj.Poster}" alt="${obj.Title}" />
                    <h3>${obj.Title}</h3>
-                   <p>${obj.imdbRating}</p>
-                   <p>${obj.Runtime}</p>
-                   <p>${obj.Genre}</p>
-                   <p>${obj.Actors}</p>
-                   <p>${obj.Plot}</p>
+                   <p>Rating: ${obj.imdbRating}</p>
+                   <p>Duración: ${obj.Runtime} min</p>
+                   <p>Género: ${obj.Genre}</p>
+                   <p>Actores: ${obj.Actors}</p>
+                   <p>Sinopsis: ${obj.Plot}</p>
                  </div>`;
   return template;
 };
