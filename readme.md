@@ -104,11 +104,54 @@ El código pasa los tests, y se encuentra en el repositorio.
 
 La historia de usuario ha sido testeada con usuarios.
 
-Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testeado con usuarios, de las edades antes mencionadas.
+Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testeado con usuarios, de las edades antes mencionadas.Y finalmente el prototipo de alta fidelidad.
 
-Y finalmente el prototipo de alta fidelidad.
+## PROTOTIPO DE BAJA FIDELIDAD
+
+![Sin titulo](assets/prot_bf_1.jpg)
+
+### Testeos de usabilidad 
+* El proceso para llegar a la película deseada con sus respectivos detalles era muy largo.
+* Apenas ingresa, el enfoque principal del usuario se encuentra en el ícono de búsqueda (lupita).
+* Se prefiere colores oscuros porque resalta los colores de los posters. Además, demuestra una cierta conexión del cine o, encaso de “sleepovers”,         “Marathon nights”.
+* A pesar de ser llamativo, el NavBar vertical hacía sentir al usuario que sus acciones son limitadas.
+* En la ventana “HOME”, ni el título y el contenido llamaba la atención a la gran mayoría de usuarios.
+* Los usuario apreciaron la falta de “sign up forms” en el app.  
+
+![Sin titulo](assets/prot_bf_2.jpg)
+![Sin titulo](assets/prot_bf_3.jpg)
+
+### Testeos de usabilidad 
+* El background le hacía pensar al usuario que eran opciones para seleccionar.
+* El botón de regreso no fue ni hallado, ni reconocido como tal.
+* Tambíen, el proceso total del app se consideró extenso por el usuario.
+* Las opciones de filtro fueron entendibles, pero la gran mayoría le daba mayor importancia a la opción de ordenado por rating.
+
+## PROTOTIPO DE ALTA FIDELIDAD 
+
+![Imagen 1][1]  ![Imagen 2][2]
+
+ [1]: assets/prot_af_1.png
+ [2]: assets/prot_af_2.png
+
+### Testeos de usabilidad
+* Al usuario le agradó el diseño minimalista de la página.
+* El usuario relacionó el estilo de la app con el de un cómic.
+* El logo se dio a entender que habría variedad entre películas y Tv Series
+* El tono background donde se contenía la lista de coincidencias le quitó el misterio que ocasionó el home. 
+* El usuario relacionaba las estrellas con el rating de las películas/Tv Series, pero no detectó su función de ordenamiento hasta después de su uso.
+
+
+![Imagen 3][3]  ![Imagen 4][4]
+
+ [3]: assets/prot_af_3.png
+ [4]: assets/prot_af_4.png
+
+* La typografía y tonos de colores fue “retina friendly” para el usuario hasta que se llegó a la parte dónde se muestran los personajes.
+* Se apreció la información detallada a lo primordial por el usuario
 
 https://www.figma.com/proto/W263NumHRDhWaXaNiTctL6jr/HACK_Peli?node-id=1%3A2&scaling=scale-down&redirected=1
+
 
 ## plannig
 
