@@ -144,8 +144,8 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 
 ![Imagen 3][3]  ![Imagen 4][4]
 
- [3]: assets/prot_af_3.png
- [4]: assets/prot_af_4.png
+ [3]: src/assets/prot_af_3.png
+ [4]: src/assets/prot_af_4.png
 
 * La typografía y tonos de colores fue “retina friendly” para el usuario hasta que se llegó a la parte dónde se muestran los personajes.
 * Se apreció la información detallada a lo primordial por el usuario
