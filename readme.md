@@ -152,14 +152,18 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 
 https://www.figma.com/proto/W263NumHRDhWaXaNiTctL6jr/HACK_Peli?node-id=1%3A2&scaling=scale-down&redirected=1
 
+<<<<<<< HEAD
 
 ## plannig
+=======
+## planniNg
 
-|:-------------------------------------------------------------------------------------------------|
+>>>>>>> 0067fc546f3e0e1291b77a633c745d162725303b
+
 |                                                       |              INTEGRANTES                 |
-|                    ACTIVIDADES                        |:-----------------------------------------|
+|                    ACTIVIDADES                        |------------------------------------------|
 |                                                       |  Lorena (FE) | Leslie (FE) | Maria (UX)  |
-|:------------------------------------------------------|: ------------|:------------|:------------|
+|-------------------------------------------------------|--------------|-------------|-------------|
 |  1. Definición del producto                           |       x      |      x      |      x      |
 |  2. Entrevistas a usuarios                            |              |             |      x      |
 |  3. Definición de Historias de usuarios               |       x      |      x      |      x      |
@@ -167,12 +171,12 @@ https://www.figma.com/proto/W263NumHRDhWaXaNiTctL6jr/HACK_Peli?node-id=1%3A2&sca
 |  5. Flujo de usuarios                                 |       x      |      x      |      x      |
 |  6. Diseño del Prototipo de alta fidelidad en Figma   |              |             |      x      |
 |  7. Testeos de Usabilidad                             |              |             |      x      |
-|:-------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------|
 |  8. Implementacion de interfaz de usuario             |                                          |
 |    - Creación del ambiente de desarrollo              |        x     |             |             |
 |    - Creación de la logica y componentes              |        x     |      x      |             |
 |    - Maquetación de la interfaz  en HTML              |        x     |      x      |             |
 |    - Personalización de los estilos CSS con Boostrap  |        x     |      x      |             |
-|:-------------------------------------------------------------------------------------------------|
+
 
 
