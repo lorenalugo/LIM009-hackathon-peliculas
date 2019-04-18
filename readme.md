@@ -108,7 +108,7 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 
 ## PROTOTIPO DE BAJA FIDELIDAD
 
-![Sin titulo](assets/prot_bf_1.jpg)
+![Sin titulo](src/assets/prot_bf_1.jpg)
 
 ### Testeos de usabilidad 
 * El proceso para llegar a la película deseada con sus respectivos detalles era muy largo.
@@ -118,8 +118,8 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 * En la ventana “HOME”, ni el título y el contenido llamaba la atención a la gran mayoría de usuarios.
 * Los usuario apreciaron la falta de “sign up forms” en el app.  
 
-![Sin titulo](assets/prot_bf_2.jpg)
-![Sin titulo](assets/prot_bf_3.jpg)
+![Sin titulo](src/assets/prot_bf_2.jpg)
+![Sin titulo](src/assets/prot_bf_3.jpg)
 
 ### Testeos de usabilidad 
 * El background le hacía pensar al usuario que eran opciones para seleccionar.
@@ -131,8 +131,8 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 
 ![Imagen 1][1]  ![Imagen 2][2]
 
- [1]: assets/prot_af_1.png
- [2]: assets/prot_af_2.png
+ [1]: src/assets/prot_af_1.png
+ [2]: src/assets/prot_af_2.png
 
 ### Testeos de usabilidad
 * Al usuario le agradó el diseño minimalista de la página.
@@ -152,13 +152,8 @@ Posteriormente, se realizó el prototipado de baja fidelidad, el cual fue testea
 
 https://www.figma.com/proto/W263NumHRDhWaXaNiTctL6jr/HACK_Peli?node-id=1%3A2&scaling=scale-down&redirected=1
 
-<<<<<<< HEAD
 
 ## plannig
-=======
-## planniNg
-
->>>>>>> 0067fc546f3e0e1291b77a633c745d162725303b
 
 |                                                       |              INTEGRANTES                 |
 |                    ACTIVIDADES                        |------------------------------------------|
